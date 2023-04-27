@@ -1,0 +1,54 @@
+PROCEDURE saisie(VAR v,u:ARRAY_OF FLOAT  )
+VAR
+    i:INTEGER:=0
+
+BEGIN
+    Read(n);
+    FOR  i FROM 0 TO n-1 DO
+    REPEAT
+        read(u[i])
+        read(v[i])
+    UNTIL(u[i]&&v[i]<>NULL)
+    END_FOR
+
+
+FUNCTION produit(VAR v,u:ARRAY_OF FLOAT; ) : float
+    VAR
+        i:INTEGER:=0;
+        calcul:FLOAT:=0
+    BEGIN
+        FOR i FROM 1 TO n STEP 1  DO
+            calcul=(u[i]*v[i])+calcul;
+        END_FOR
+        RETURN calcul;
+    END
+/*PROCEDURE produit(VAR v,u:ARRAY_OF FLOAT; var a:FLOAT)
+VAR
+    a:=FLOAT:0;
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+            a=(u[i]*v[i])+calcul;
+        END_FOR
+END*/
+
+
+
+ALGORITHM algorithm_name
+VAR
+    i,j:INTEGER:=0
+    tab1:ARRAY_OF INTEGER;
+    tab2:ARRAY_OF INTEGER;
+
+    produit-scal:FLOAT;
+BEGIN
+    saisie(tab1);
+    saisie(tab2);
+    produit-scal:=produit(tab1,tab2);
+    IF (produit-scal==0) THEN
+        write("ortogo");
+    END_IF
+    ELSE
+        write("is not!!!");
+    END_IF
+
+END

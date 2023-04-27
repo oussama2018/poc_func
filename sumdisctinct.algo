@@ -1,0 +1,43 @@
+PROCEDURE saisie(VAR s:ARRAY_OF INTEGER  )
+VAR
+    i:INTEGER:=0
+
+
+BEGIN
+    FOR  i FROM 0 TO n DO
+    REPEAT
+        read(s[i])
+    UNTIL(s[i]<>NULL)
+    END_FOR
+END
+FUNCTION somme(s:ARRAY_OF INTEGER) : INTEGER
+VAR
+    i:INTEGER:=0
+    sum:INTEGER:=0
+BEGIN
+   FOR i FROM 0 TO s.length-1   DO
+    sum:=sum+s[i]
+   END_FOR
+    RETURN sum ;
+END
+ALGORITHM sum_distinct
+VAR
+    i,j:INTEGER:=0
+    tab1:ARRAY_OF INTEGER [4]
+    tab2:ARRAY_OF INTEGER [5]
+    finalsum:INTEGER
+BEGIN
+    saisie(tab1)
+    saisie(tab2)
+
+FOR i FROM min TO 3 DO
+    FOR j FROM 0 TO 4 DO
+        IF (tab1[i]=tab2[j]) THEN
+            tab1[i]:=0
+        END_IF
+        tab2[j]:=0
+    END_FOR
+END_FOR
+    finalsum:=somme(tab1)+somme(tab2)
+    Write("the sum of all distinct elements of both arrays is",finalsum)
+END
